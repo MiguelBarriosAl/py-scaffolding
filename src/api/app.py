@@ -1,4 +1,4 @@
-from src.api.services import Service
+from api.services import Service
 
 
 class App:

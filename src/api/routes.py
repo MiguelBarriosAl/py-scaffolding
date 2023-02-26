@@ -2,9 +2,9 @@ from fastapi import FastAPI, APIRouter, Request
 from starlette.responses import JSONResponse
 
 from fastapi import HTTPException
-from src.api.app import App
-from src.api.models import File
-from src.constants import ip_cache, TIME, __version__
+from api.app import App
+from api.models import File
+from constants import ip_cache, TIME, __version__
 
 app = FastAPI()
 api = App()

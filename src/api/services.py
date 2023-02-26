@@ -1,6 +1,6 @@
 from fastapi import HTTPException
 from starlette.responses import JSONResponse
-from src.constants import MAX
+from constants import MAX
 
 
 class Service:
