@@ -1,8 +1,6 @@
 import unittest
 from unittest.mock import patch
 from fastapi import status, HTTPException
-from starlette.responses import JSONResponse
-
 from api.models import File
 from api.services import Service
 
