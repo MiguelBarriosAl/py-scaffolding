@@ -4,7 +4,7 @@ from starlette.responses import JSONResponse
 from fastapi import HTTPException
 from api.app import App
 from api.models import File
-from constants import ip_cache, TIME, __version__
+from constants import IP_CACHE, TIME, __version__
 
 app = FastAPI()
 api = App()
@@ -36,7 +36,7 @@ async def get_all_files() -> dict:
 @app.get("/files/{id_file}")
 async def get_file_by_id(id_file: str, request: Request) -> dict:
     ip_address = request.client.host
-    if ip_address in ip_cache and ip_cache[ip_address] >= TIME:
+    if ip_address in IP_CACHE and IP_CACHE[ip_address] >= TIME:
         raise HTTPException(status_code=429, detail="Rate limit exceeded. Try again in 1 minute.")
     api.get_file_id(id_file)
     return api.get_file_id(id_file)

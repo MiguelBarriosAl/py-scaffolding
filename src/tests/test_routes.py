@@ -1,5 +1,4 @@
 import unittest
-
 from fastapi.testclient import TestClient
 from src.api.routes import app
 
@@ -8,10 +7,10 @@ client = TestClient(app)
 
 class TestFileUpload(unittest.TestCase):
     def test_upload_file(self):
-        file = {"id": "123", "name": "example.txt", "url": "https://example.com"}
+        file = {"id": "1", "name": "test.txt", "url": "https://99files.com"}
         response = client.post("/files", json=file)
         self.assertEqual(response.status_code, 201)
-        self.assertEqual(response.json(), [{"id": "123", "name": "example.txt", "url": "https://example.com"}])
+        self.assertEqual(response.json(), [{"id": "1", "name": "test.txt", "url": "https://99files.com"}])
 
     def test_upload_empty_file(self):
         file = {}
@@ -31,8 +30,12 @@ class TestRoutes(unittest.TestCase):
         self.app = TestClient(app)
 
     def test_upload_file(self):
-        file = {"id": "123", "name": "example.txt", "url": "https://example.com"}
+        file = {"id": "1", "name": "test.txt", "url": "https://99files.com"}
         response = self.app.post("/files", json=file)
         self.assertEqual(response.status_code, 201)
+
+
+if __name__ == '__main__':
+    unittest.main()
 
 
