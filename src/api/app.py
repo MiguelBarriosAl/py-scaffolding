@@ -14,7 +14,3 @@ class App:
 
     def get_file_id(self, id_file: str):
         return self.service.get_file_id(id_file)
-
-
-
-
